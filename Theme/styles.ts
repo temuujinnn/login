@@ -4,7 +4,7 @@ const styles: Styles = {
 	global: (props: any) => ({
 		body: {
 			fontFamily: "Nunito Sans",
-			bg: mode("gray.100", "gray.800")(props),
+			bg: mode("gray.200", "gray.800")(props),
 		},
 	}),
 };
