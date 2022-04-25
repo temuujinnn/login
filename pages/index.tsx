@@ -1,12 +1,7 @@
-import { Text } from "@chakra-ui/react";
 import type { NextPage } from "next";
-
-const Home: NextPage = () => {
-  return (
-    <>
-      <Text> sdadsaaaaaaaaaaaaaaaatemka was here</Text>
-    </>
-  );
+import { Home } from "../Domains/Home";
+const Page: NextPage = () => {
+  return <Home />;
 };
 
-export default Home;
+export default Page;
