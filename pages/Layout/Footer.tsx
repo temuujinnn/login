@@ -36,11 +36,11 @@ export const Footer = () => {
           <Stack spacing={10}>
             <Text fontSize="2xl">Bodi Tour</Text>
             <Text>
-              Бид үйл ажиллагаагаа 7-н жилийн турш <br /> тасралтгүй явуулж
+              Бид үйл ажиллагаагаа 6-н жилийн турш <br /> тасралтгүй явуулж
               байгаа бөгөөд таны <br /> тав тухтай аялуулхыг зорино
             </Text>
             <Text fontSize="2xl">Follow Us:</Text>
-            <HStack spacing={5}>
+            <HStack>
               {icons.map((el) => {
                 return (
                   <Icon

@@ -1,35 +1,58 @@
-import { Box, Flex, Image } from "@chakra-ui/react";
+import {
+  AspectRatio,
+  Box,
+  Flex,
+  Image,
+  useBreakpointValue,
+} from "@chakra-ui/react";
 import Slider from "react-slick";
-const Img = [
-  "https://cdn.discordapp.com/attachments/967177210706411523/967177251097546772/3.jpg",
-  "https://cdn.discordapp.com/attachments/967177210706411523/967177268776538132/2.jpg",
-  "https://cdn.discordapp.com/attachments/967177210706411523/967177286124179486/1.jpg",
-];
-export const SlideHome = () => {
-  const NextArr = () => {
-    return <Flex display="none">sda</Flex>;
-  };
-  const PrevArr = () => {
-    return <Flex display="none">sda</Flex>;
-  };
+
+export const SlideHome = ({ banners }: any) => {
+  const ratio = useBreakpointValue({
+    base: 2 / 3,
+    md: 1,
+    lg: 4 / 3,
+    xl: 5 / 2,
+  });
+  const padding = useBreakpointValue({
+    base: "20px",
+    sm: "40px",
+    md: "60px",
+    lg: "80px",
+    xl: "100px",
+  });
   const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
+    centerMode: true,
+    className: "homeslider",
+    centerPadding: padding,
     slidesToShow: 1,
-    slidesToScroll: 1,
+    speed: 500,
+    autoplaySpeed: 5000,
     autoplay: true,
-    duration: 2,
-    nextArrow: <NextArr />,
-    prevArrow: <PrevArr />,
+    arrows: false,
   };
   return (
     <>
       <Slider {...settings}>
-        {Img.map((el: any, ind: number) => {
-          return <Image key={ind} w="100%" h="90vh" src={el} />;
+        {banners?.map((el: any, ind: number) => {
+          return <Card url={el} key={ind} ratio={ratio} h="90vh" src={el} />;
         })}
       </Slider>
     </>
+  );
+};
+export const Card = ({ ratio, url }: any) => {
+  return (
+    <Box>
+      <AspectRatio ratio={ratio}>
+        <Image
+          fallbackSrc="https://via.placeholder.com/150"
+          src={url.imageUrl}
+          borderRadius={24}
+          alt="sd"
+          bg="blackAlpha.700"
+        />
+      </AspectRatio>
+    </Box>
   );
 };

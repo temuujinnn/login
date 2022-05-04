@@ -14,3 +14,18 @@ a {
 * {
   box-sizing: border-box;
 }
+.homeslider .slick-slide.slick-current {
+  transform: scale(1);
+  transition: 250ms transform;
+  transition-delay: 500ms;
+}
+
+.homeslider .slick-slide {
+  transform: scale(0.95);
+  transition: 250ms transform;
+  transition-delay: 500ms;
+}
+
+.homespecial .slick-slide {
+  transform: scale(0.95);
+}

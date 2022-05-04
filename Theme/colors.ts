@@ -12,16 +12,16 @@ const brand = {
 };
 
 const brandGray = {
-	50: "#E6F0F7",
-	100: "#CCE0F0",
-	200: "#B3D1E8",
-	300: "#99C2E1",
-	400: "#80B3D9",
-	500: "#66A3D1",
-	600: "#4D94CA",
-	700: "#3385C2",
-	800: "#1975BB",
-	900: "#171923",
+	50: "#ffffff",
+	100: "#fbfafa",
+	200: "#f7f4f4",
+	300: "#f4efef",
+	400: "#f0e9e9",
+	500: "#ece4e4",
+	600: "#bdb6b6",
+	700: "#8e8989",
+	800: "#5e5b5b",
+	900: "#2f2e2e",
 };
 
 const bgColor = {
@@ -60,6 +60,7 @@ const yellow = {
 
 const colors = {
 	brand,
+	brandGray,
 	bgColor,
 	fontColor,
 	purple,

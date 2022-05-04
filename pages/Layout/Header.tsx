@@ -3,13 +3,14 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FiMenu } from "react-icons/fi";
 import { useRouter } from "next/router";
+import axios from "axios";
 const header = [
   { title: "Home", link: "/" },
-  { title: "Travel list", link: "/travel_list" },
-  { title: "Travel Guide", link: "/travel_guide" },
-  { title: "Image & Video", link: "/image_video" },
-  { title: "Payment Guide", link: "/payment_guide" },
-  { title: "About us", link: "/about_us" },
+  { title: "투어상품", link: "/travel_list" },
+  { title: "투어가이드", link: "/travel_guide" },
+  { title: "이미지 & 비디오", link: "/image_video" },
+  { title: "결제 안내", link: "/payment_guide" },
+  { title: "우리에 대해", link: "/about_us" },
 ];
 interface Header {
   onOpen: () => void;
@@ -18,6 +19,7 @@ interface Header {
 const Header = ({ onOpen }: Header) => {
   const router = useRouter();
   const [offset, setOffset] = useState(0);
+
   useEffect(() => {
     const onScroll = () => setOffset(window.pageYOffset);
     // clean up code
@@ -25,7 +27,7 @@ const Header = ({ onOpen }: Header) => {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-  console.log(offset);
+
   return (
     <HStack
       bg={router.pathname === "/" && offset === 0 ? "" : "gray.100"}
@@ -35,11 +37,11 @@ const Header = ({ onOpen }: Header) => {
       spacing={20}
       color={router.pathname === "/" && offset === 0 ? "white" : "black"}
       transition="ease .2s"
-      py={3}
+      py={5}
       px={10}
       boxShadow={router.pathname === "/" && offset === 0 ? "" : "xl"}
+      justifyContent="center"
     >
-      <Image src="https://cdn.discordapp.com/attachments/967177210706411523/967289836111286282/4.png" />
       {header.map((el: any, ind: number) => {
         return (
           <Link key={ind} href={el.link}>

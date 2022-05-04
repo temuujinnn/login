@@ -2,7 +2,7 @@ import type { AppProps } from "next/app";
 import { ChakraProvider } from "@chakra-ui/react";
 import Theme from "../Theme";
 import { ColorProvider } from "../Context/ColorContext";
-
+import "../styles/globals.css";
 import LayOut from "./Layout";
 
 function MyApp(AppProps: AppProps) {
