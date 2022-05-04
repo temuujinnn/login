@@ -12,7 +12,7 @@ import {
   Icon,
   Select,
 } from "@chakra-ui/react";
-import { UseSize } from "../../Hooks/UseSize";
+import { UseSize } from "../Hooks/UseSize";
 
 import { FaLanguage } from "react-icons/fa";
 import { useState } from "react";

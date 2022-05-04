@@ -8,7 +8,7 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react";
-import { Container } from "../../Theme/common";
+import { Container } from "../Theme/common";
 import { FaFacebookF } from "react-icons/fa";
 import { BsInstagram } from "react-icons/bs";
 import { RiKakaoTalkLine } from "react-icons/ri";
