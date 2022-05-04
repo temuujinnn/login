@@ -1,9 +1,10 @@
 import { AspectRatio, Box } from "@chakra-ui/react";
 export const SubHeader = ({ text }: any) => {
   return (
-    <AspectRatio ratio={18}>
+    <AspectRatio ratio={12}>
       <Box
-        bg="brandGray.600"
+        bg="brand.500"
+        color="brandGray.800"
         p={10}
         fontSize={["2xl", "2xl", "3xl", "4xl", "6xl"]}
       >

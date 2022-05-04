@@ -71,6 +71,7 @@ export const TravelList = () => {
               onChange={(e) => {
                 setPrice(e);
               }}
+              step={100000}
               min={0}
               max={3000000}
               aria-label={["min", "max"]}
@@ -107,7 +108,7 @@ export const TravelList = () => {
                           px={3}
                           justifyContent="space-between"
                         >
-                          <Text color="#ff7f47" fontSize="md">
+                          <Text color="brand.700" fontSize="md">
                             <Icon as={GrMap} /> {el.tourName}
                           </Text>
                           <Text fontSize="md">₩120.000/원 1인</Text>

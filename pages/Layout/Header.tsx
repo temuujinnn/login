@@ -1,4 +1,4 @@
-import { Box, Flex, HStack, Image, Select, Text } from "@chakra-ui/react";
+import { Box, HStack, Text } from "@chakra-ui/react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FiMenu } from "react-icons/fi";
@@ -44,7 +44,7 @@ const Header = ({ onOpen }: Header) => {
     >
       {header.map((el: any, ind: number) => {
         return (
-          <Link key={ind} href={el.link}>
+          <Link key={ind} passHref href={el.link}>
             <Text
               display={["none", "none", "none", "none", "flex", "flex"]}
               _hover={{ textDecoration: "underline" }}

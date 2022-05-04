@@ -30,7 +30,7 @@ export const TripCard = (data: any) => {
             <Icon as={GoCalendar} />5 Days/6 night
           </Text>
         </HStack>
-        <Text color="#ff7f47" fontSize="2xl">
+        <Text color="brand.700" fontSize="2xl">
           <Icon as={GrMap} /> Gobi desert tour
         </Text>
       </Stack>

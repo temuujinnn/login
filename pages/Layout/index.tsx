@@ -1,11 +1,12 @@
 import { AppProps } from "next/dist/shared/lib/router/router";
 import NextNProgress from "nextjs-progressbar";
-import Header from "./Header";
+
 import { useDisclosure } from "@chakra-ui/react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { Footer } from "./Footer";
-import { Sidebar } from "./Sidebar";
+import Header from "./Header";
+import Footer from "./Footer";
+import Sidebar from "./Sidebar";
 const LayOut = ({ Component, pageProps }: AppProps) => {
   const {
     isOpen: drawerIsOpen,

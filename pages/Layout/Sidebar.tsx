@@ -22,7 +22,7 @@ interface Sidebar {
   onClose: () => void;
 }
 
-export const Sidebar = ({ isOpen, onClose }: Sidebar) => {
+const Sidebar = ({ isOpen, onClose }: Sidebar) => {
   const [reverse, setReverse] = useState(false);
   const size = UseSize("drawer");
 
@@ -69,3 +69,4 @@ export const Sidebar = ({ isOpen, onClose }: Sidebar) => {
     </Drawer>
   );
 };
+export default Sidebar;

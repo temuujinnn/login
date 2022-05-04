@@ -17,10 +17,10 @@ import { BiPhoneCall, BiMailSend } from "react-icons/bi";
 import { SiGooglemaps } from "react-icons/si";
 const icons = [FaFacebookF, BsInstagram, RiKakaoTalkLine, SiNaver];
 const support = ["Contact Us", "About Us", "Travel Guide "];
-export const Footer = () => {
+const Footer = () => {
   return (
     <>
-      <Stack pt="100px" pb={10} bg="#262339">
+      <Stack pt="100px" pb={10} bg="brandGray.800">
         <SimpleGrid
           color="white"
           flexDir="column"
@@ -41,11 +41,12 @@ export const Footer = () => {
             </Text>
             <Text fontSize="2xl">Follow Us:</Text>
             <HStack>
-              {icons.map((el) => {
+              {icons.map((el: any, ind: number) => {
                 return (
                   <Icon
+                    key={ind}
                     cursor="pointer"
-                    color="#ff7f47"
+                    color="brand.700"
                     fontSize="2xl"
                     as={el}
                   />
@@ -56,21 +57,21 @@ export const Footer = () => {
           <Stack spacing={10}>
             <Text fontSize="2xl">Contact Us</Text>
             <HStack spacing={5}>
-              <Icon fontSize="3xl" color="#ff7f47" as={BiPhoneCall} />
+              <Icon fontSize="3xl" color="brand.700" as={BiPhoneCall} />
               <Stack>
                 <Text>+97680008544</Text>
                 <Text>+97680008544</Text>
               </Stack>
             </HStack>
             <HStack spacing={5}>
-              <Icon fontSize="3xl" color="#ff7f47" as={BiMailSend} />
+              <Icon fontSize="3xl" color="brand.700" as={BiMailSend} />
               <Stack>
                 <Text>boditour@gmail.com</Text>
                 <Text>temvkaa@gmail.com</Text>
               </Stack>
             </HStack>
             <HStack spacing={5}>
-              <Icon fontSize="3xl" color="#ff7f47" as={SiGooglemaps} />
+              <Icon fontSize="3xl" color="brand.700" as={SiGooglemaps} />
               <Stack>
                 <Text>Ulaanbaat, Mongolia</Text>
               </Stack>
@@ -78,8 +79,12 @@ export const Footer = () => {
           </Stack>
           <Stack spacing={10}>
             <Text fontSize="2xl">Support</Text>
-            {support.map((el) => {
-              return <Text cursor="pointer">{el}</Text>;
+            {support.map((el: any, ind: number) => {
+              return (
+                <Text key={ind} cursor="pointer">
+                  {el}
+                </Text>
+              );
             })}
           </Stack>
         </SimpleGrid>
@@ -88,13 +93,14 @@ export const Footer = () => {
           <Text color="white" textAlign="center">
             Copyright 2022
           </Text>
-          <Text color="#ff7f47">Bodi Tour</Text>
+          <Text color="brand.700">Bodi Tour</Text>
           <Text color="white" textAlign="center">
             | Designed By
           </Text>
-          <Text color="#ff7f47"> 0xTeMk4</Text>
+          <Text color="brand.700"> 0xTeMk4</Text>
         </HStack>
       </Stack>
     </>
   );
 };
+export default Footer;
