@@ -1,19 +1,19 @@
 version: '3.7'
 
 services:
-  # nginx_front:
-  #   container_name: nginx
-  #   restart: on-failure
-  #   image: nginx:stable
-  #   links:
-  #     - client_front:client_front
-  #   volumes:
-  #     - ./public:/usr/src/app
-  #     - ./nginx/front.conf:/etc/nginx/conf.d/core.conf
-  #   ports:
-  #     - 80:80
-  #   depends_on:
-  #     - client_front
+  nginx_front:
+    container_name: nginx
+    restart: on-failure
+    image: nginx:stable
+    links:
+      - client_front:client_front
+    volumes:
+      - ./public:/usr/src/app
+      - ./nginx/front.conf:/etc/nginx/conf.d/core.conf
+    ports:
+      - 80:80
+    depends_on:
+      - client_front
 
   client_front:
     container_name: avdar_cliet_front
