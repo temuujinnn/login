@@ -11,6 +11,7 @@ COPY yarn.lock /var/www/bodi
 # USER node
 
 RUN yarn install --production
+RUN yarn add typescript @types/node
 
 COPY . /var/www/bodi
 
