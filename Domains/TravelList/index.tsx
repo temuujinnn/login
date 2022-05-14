@@ -57,7 +57,13 @@ export const TravelList = () => {
             mx="auto"
           >
             <Flex>
-              <Stack w="350px" h="100%" p={2} bg="white">
+              <Stack
+                display={["none", "flex"]}
+                w="350px"
+                h="100%"
+                p={2}
+                bg="white"
+              >
                 <Text>Location</Text>
                 <Checkbox>gobi</Checkbox>
                 <Checkbox>Khangai</Checkbox>
@@ -91,7 +97,10 @@ export const TravelList = () => {
                   <RangeSliderThumb index={1} />
                 </RangeSlider>
               </Stack>
-              <Stack ml={10} h="100%" w="100%">
+              <Stack ml={[0, 10]} h="100%" w="100%">
+                <Text fontSize="2xl" fontWeight="bold">
+                  Travel List
+                </Text>
                 <SimpleGrid spacing={10} columns={[1, 2, 2, 3, 3]}>
                   {data.AllTours?.map((el: any, ind: number) => {
                     return (

@@ -1,26 +1,26 @@
 import axios from "axios";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { TourDetail } from "../Domains/TourDetail";
+import { TourList } from "../../Domains/TourList";
 
 export default function CreatorsPage() {
   const router = useRouter();
   const [data, setData] = useState<any>();
-  const id = router.query.id;
+  const wich = router.query.wich;
+
   useEffect(() => {
     axios
-      .get(`${process.env.NEXT_PUBLIC_BASE_URL}/tour?tourId=${id}`)
+      .get(`${process.env.NEXT_PUBLIC_BASE_URL}/tour?_id=${wich}`)
       .then((res) => {
-        console.log(res);
-        setData(res.data.data);
+        setData(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
-  }, [id]);
+  }, [wich]);
   if (!data) {
     return null;
   }
 
-  return <TourDetail data={data} />;
+  return <TourList data={data} />;
 }

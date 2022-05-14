@@ -5,12 +5,12 @@ import { FiMenu } from "react-icons/fi";
 import { useRouter } from "next/router";
 import axios from "axios";
 const header = [
-  { title: "Home", link: "/" },
-  { title: "투어상품", link: "/travel_list" },
-  { title: "투어가이드", link: "/travel_guide" },
-  { title: "이미지 & 비디오", link: "/image_video" },
-  { title: "결제 안내", link: "/payment_guide" },
-  { title: "우리에 대해", link: "/about_us" },
+  { title: "홈페이지", link: "/" },
+  { title: "관광지 소개", link: "/attraction" },
+  { title: "여행 상품", link: "/travel_list" },
+  { title: "여행지 숙소", link: "/payment_guide" },
+  { title: "연락처", link: "/contact" },
+  { title: "Q/A", link: "/faq" },
 ];
 interface Header {
   onOpen: () => void;
@@ -40,8 +40,9 @@ const Header = ({ onOpen }: Header) => {
       py={5}
       px={10}
       boxShadow={router.pathname === "/" && offset === 0 ? "" : "xl"}
-      justifyContent="center"
+      justifyContent={["space-between", "center"]}
     >
+      <Box w="10px" />
       {header.map((el: any, ind: number) => {
         return (
           <Link key={ind} passHref href={el.link}>
@@ -49,7 +50,8 @@ const Header = ({ onOpen }: Header) => {
               display={["none", "none", "none", "none", "flex", "flex"]}
               _hover={{ textDecoration: "underline" }}
               cursor="pointer"
-              fontSize="lg"
+              fontSize="xl"
+              fontWeight="bold"
             >
               {el.title}
             </Text>
@@ -62,10 +64,6 @@ const Header = ({ onOpen }: Header) => {
       >
         <FiMenu />
       </Box>
-      {/* <Select size="xs">
-        <option>en</option>
-        <option>mn</option>
-      </Select> */}
     </HStack>
   );
 };

@@ -14,7 +14,7 @@ import {
 import { useColor } from "../../Context/ColorContext";
 import { Container } from "../../Theme/common";
 import { SlideHome } from "./SlideHome";
-import { GrMap } from "react-icons/gr";
+
 import { FaUser, FaRegHandshake } from "react-icons/fa";
 import { GiTeamIdea } from "react-icons/gi";
 import { BiHappy } from "react-icons/bi";
@@ -51,6 +51,7 @@ export const Home = () => {
   if (!data) {
     return null;
   }
+  console.log(data);
 
   return (
     <>
@@ -72,71 +73,33 @@ export const Home = () => {
             mx="auto"
             spacing={10}
           >
-            <SubHeader text="가장 인기 있는 최고의 모험" />
-            <SimpleGrid mt={10} spacing={10} columns={[1, 2, 2, 4, 4]}>
-              {data.specialTours.map((el: any, ind: number) => {
-                return (
-                  <Link href={el._id}>
-                    <AspectRatio ratio={1 / 1}>
-                      <Stack boxShadow="xl" key={ind} cursor="pointer">
-                        <Image
-                          _hover={{
-                            transform: "scale(1.05)",
-                            boderRadius: "0",
-                          }}
-                          transition="ease .2s"
-                          src={el.banner}
-                        />
-
-                        <Flex
-                          h="60px"
-                          w="100%"
-                          textAlign="left"
-                          flexDir="column"
-                          px={3}
-                          justifyContent="space-between"
-                        >
-                          <Text color="brand.700" fontSize="md">
-                            <Icon as={GrMap} /> {el.tourName}
-                          </Text>
-                          <Text fontSize="md">₩120.000/원 1인</Text>
-                        </Flex>
-                      </Stack>
-                    </AspectRatio>
-                  </Link>
-                );
-              })}
-            </SimpleGrid>
-
-            <SubHeader text="여행에 가장 적합한 패키지를 선택하세요" />
-
+            {/* <SubHeader text="가장 인기 있는 최고의 모험" /> */}
             <SimpleGrid gap={5} columns={[1, 2, 2, 4, 4]}>
-              {data.AllTours?.map((el: any, ind: number) => {
+              {data?.tourTypes?.map((el: any, ind: number) => {
                 return (
-                  <Link href={el._id}>
+                  <Link href={`tourlist/${el._id}`}>
                     <AspectRatio ratio={1 / 1}>
-                      <Stack boxShadow="xl" key={ind} cursor="pointer">
-                        <Image
-                          _hover={{
-                            transform: "scale(1.05)",
-                            boderRadius: "0",
-                          }}
-                          transition="ease .2s"
-                          src={el.banner}
-                        />
-
-                        <Flex
-                          h="60px"
-                          w="100%"
-                          textAlign="left"
-                          flexDir="column"
-                          px={3}
-                          justifyContent="space-between"
-                        >
-                          <Text color="brand.700" fontSize="md">
-                            <Icon as={GrMap} /> {el.tourName}
+                      <Stack
+                        border="7px solid #F48CCD "
+                        _hover={{
+                          transform: "scale(1.05)",
+                          boderRadius: "0",
+                        }}
+                        transition="ease .2s"
+                        boxShadow="xl"
+                        key={ind}
+                        cursor="pointer"
+                        justifyContent="space-between"
+                      >
+                        <Image w="100%" h="230px" src={el.banner} />
+                        <Flex justifyContent="center" w="100%" px={3}>
+                          <Text
+                            bgGradient="linear(to-l, #F4BE2C, #F48CCD)"
+                            bgClip="text"
+                            fontSize="4xl"
+                          >
+                            {el.name}
                           </Text>
-                          <Text fontSize="md">₩120.000/원 1인</Text>
                         </Flex>
                       </Stack>
                     </AspectRatio>
@@ -146,6 +109,7 @@ export const Home = () => {
             </SimpleGrid>
 
             <SubHeader text="보디투어로 여행하는 이유" />
+            <Box h="10px" />
 
             <SimpleGrid spacing={10} columns={[1, 2, 4]}>
               {whyTour.map((el: any, ind: number) => {
