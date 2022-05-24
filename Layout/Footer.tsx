@@ -36,8 +36,8 @@ const Footer = () => {
           <Stack spacing={10}>
             <Text fontSize="2xl">Bodi Tour</Text>
             <Text>
-              Бид үйл ажиллагаагаа 6-н жилийн турш <br /> тасралтгүй явуулж
-              байгаа бөгөөд таны <br /> тав тухтай аялуулхыг зорино
+              베테랑 기사, 한국어 소통 가능한 가이드, <br /> 24시간 한국
+              상담원이 항시 대기 중입니다^^
             </Text>
             <Text fontSize="2xl">Follow Us:</Text>
             <HStack>
@@ -59,21 +59,24 @@ const Footer = () => {
             <HStack spacing={5}>
               <Icon fontSize="3xl" color="brand.700" as={BiPhoneCall} />
               <Stack>
-                <Text>+97680008544</Text>
-                <Text>+97680008544</Text>
+                <Text>+010 7777 9176</Text>
+                <Text>+97699916532</Text>
               </Stack>
             </HStack>
             <HStack spacing={5}>
               <Icon fontSize="3xl" color="brand.700" as={BiMailSend} />
               <Stack>
-                <Text>boditour@gmail.com</Text>
-                <Text>temvkaa@gmail.com</Text>
+                <Text>boditour77779176@gmail.com</Text>
+                <Text>kakao talk: gimme333</Text>
               </Stack>
             </HStack>
             <HStack spacing={5}>
               <Icon fontSize="3xl" color="brand.700" as={SiGooglemaps} />
               <Stack>
-                <Text>Ulaanbaat, Mongolia</Text>
+                <Text>
+                  Ulaanbaatar, Mongolia Sukhbaatar district Seoul street, Time
+                  classic tower 13th floor 1311{" "}
+                </Text>
               </Stack>
             </HStack>
           </Stack>

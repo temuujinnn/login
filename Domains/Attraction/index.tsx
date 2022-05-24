@@ -16,14 +16,16 @@ import {
   Button,
 } from "@chakra-ui/react";
 import axios from "axios";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Container } from "../../Theme/common";
 export const Attraction = () => {
   const [data, setData] = useState<any>([]);
   const [index, setIndex] = useState<any>(0);
+
   useEffect(() => {
     axios
-      .get(`${process.env.NEXT_PUBLIC_BASE_URL}/attractions_admin`)
+      .get(`${process.env.NEXT_PUBLIC_BASE_URL}/attraction`)
       .then((res) => {
         console.log(res.data);
         setData(res.data.data);
@@ -38,6 +40,7 @@ export const Attraction = () => {
 
     onOpen();
   };
+  console.log(data);
   return (
     <>
       <Box h="100px" />
@@ -74,6 +77,7 @@ export const Attraction = () => {
                     description={el.description}
                     image={el.image}
                     index={index}
+                    camps={el.camps}
                   />
                 </Stack>
               </AspectRatio>
@@ -92,7 +96,9 @@ const MyModal = ({
   image,
   ind,
   index,
+  camps,
 }: any) => {
+  const [see, setSee] = useState<boolean>(false);
   return (
     <>
       {ind === index && (
@@ -105,15 +111,50 @@ const MyModal = ({
               <Stack>
                 <Image src={image} />
                 <Text>{name}</Text>
-                <Text>{description}</Text>
+                {see ? (
+                  <Text>
+                    {description}{" "}
+                    <span
+                      style={{ cursor: "pointer", fontWeight: "bold" }}
+                      onClick={() => setSee(!see)}
+                    >
+                      {see ? " hide" : "See more"}
+                    </span>
+                  </Text>
+                ) : (
+                  <Text>
+                    {description.slice(0, 300)}...{" "}
+                    <span
+                      style={{ cursor: "pointer", fontWeight: "bold" }}
+                      onClick={() => setSee(!see)}
+                    >
+                      {see ? " hide" : "See more"}
+                    </span>
+                  </Text>
+                )}
+                <Text
+                  display={camps.length === 0 ? "none" : "flex"}
+                  fontSize="xl"
+                  fontWeight="semibold"
+                >
+                  Hotels
+                </Text>
+                {camps?.map((el: any, ind: number) => {
+                  return (
+                    <Link href={el._id}>
+                      <Text
+                        cursor="pointer"
+                        _hover={{ textDecoration: "underline" }}
+                      >
+                        {el.name}
+                      </Text>
+                    </Link>
+                  );
+                })}
               </Stack>
             </ModalBody>
 
-            <ModalFooter>
-              <Button colorScheme="blue" mr={3} onClick={onClose}>
-                Close
-              </Button>
-            </ModalFooter>
+            <ModalFooter></ModalFooter>
           </ModalContent>
         </Modal>
       )}

@@ -6,9 +6,10 @@ export const OurTravel = ({ el }: any, ind: number) => {
       <VStack
         color="white"
         borderRadius="12px"
-        p={10}
+        p={"70px"}
         bg="brandGray.600"
         key={ind}
+        alignItems="center"
       >
         <Icon fontSize="6xl" as={el.icon} />
         <Text textAlign="center" fontSize="xl">

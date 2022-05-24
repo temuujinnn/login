@@ -28,7 +28,6 @@ import { MySpinner } from "../../Component/MySpinner";
 export const Home = () => {
   const { bg } = useColor();
   const whyTour = [
-    { icon: FaUser, title: "30+ 전세계 가이드" },
     { icon: FaRegHandshake, title: "100% 믿을 수 있는 여행사" },
     { icon: GiTeamIdea, title: "8+년 여행 경험 " },
     { icon: BiHappy, title: "90%가 여행자의 행복합니다" },
@@ -51,7 +50,6 @@ export const Home = () => {
   if (!data) {
     return null;
   }
-  console.log(data);
 
   return (
     <>
@@ -68,36 +66,47 @@ export const Home = () => {
             w="100%"
             h="100%"
             maxW={Container}
-            my={["10px", "40px"]}
+            bg="gray.300"
+            my={["10px", "90px"]}
             px={["15px", "15px", "40px", "", "20px"]}
             mx="auto"
+            py={10}
             spacing={10}
           >
-            {/* <SubHeader text="가장 인기 있는 최고의 모험" /> */}
-            <SimpleGrid gap={5} columns={[1, 2, 2, 4, 4]}>
+            <Text textAlign="center" fontWeight="bold" fontSize="4xl">
+              Regions
+            </Text>
+            <SimpleGrid gap={10} columns={[1, 2, 2, 4, 4]}>
               {data?.tourTypes?.map((el: any, ind: number) => {
                 return (
                   <Link href={`tourlist/${el._id}`}>
                     <AspectRatio ratio={1 / 1}>
                       <Stack
-                        border="7px solid #F48CCD "
-                        _hover={{
-                          transform: "scale(1.05)",
-                          boderRadius: "0",
-                        }}
-                        transition="ease .2s"
                         boxShadow="xl"
+                        borderRadius="12px"
                         key={ind}
                         cursor="pointer"
                         justifyContent="space-between"
                       >
-                        <Image w="100%" h="230px" src={el.banner} />
-                        <Flex justifyContent="center" w="100%" px={3}>
-                          <Text
-                            bgGradient="linear(to-l, #F4BE2C, #F48CCD)"
-                            bgClip="text"
-                            fontSize="4xl"
-                          >
+                        <Image
+                          _hover={{
+                            transform: "scale(1.05)",
+                            boderRadius: "0",
+                          }}
+                          transition="ease .2s"
+                          w="100%"
+                          h="100%"
+                          src={el.banner}
+                        />
+                        <Flex
+                          pos="absolute"
+                          bottom="0"
+                          borderRadius="12px"
+                          bg="#FF6166"
+                          justifyContent="center"
+                          w="100%"
+                        >
+                          <Text py={2} color="white" fontSize="4xl">
                             {el.name}
                           </Text>
                         </Flex>
@@ -107,11 +116,29 @@ export const Home = () => {
                 );
               })}
             </SimpleGrid>
-
+          </Stack>
+          <Stack
+            w="100%"
+            color="white"
+            bgSize={"cover"}
+            h="60vh"
+            bg={`url(https://cdn.discordapp.com/attachments/967177210706411523/977143155461869608/175875884_4168116163208858_2599896246514579901_n.jpg) no-repeat center`}
+            backgroundAttachment="fixed"
+          ></Stack>
+          <Stack
+            borderRadius="12px"
+            w="100%"
+            h="100%"
+            maxW={Container}
+            my={["10px", "40px"]}
+            px={["15px", "15px", "40px", "", "20px"]}
+            mx="auto"
+            spacing={10}
+          >
             <SubHeader text="보디투어로 여행하는 이유" />
             <Box h="10px" />
 
-            <SimpleGrid spacing={10} columns={[1, 2, 4]}>
+            <SimpleGrid spacing={10} columns={[1, 2, 3]}>
               {whyTour.map((el: any, ind: number) => {
                 return <OurTravel el={el} ind={ind} />;
               })}

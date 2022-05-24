@@ -1,8 +1,11 @@
 import {
   AspectRatio,
   Box,
+  Button,
   Flex,
   Image,
+  Stack,
+  Text,
   useBreakpointValue,
 } from "@chakra-ui/react";
 import Slider from "react-slick";
@@ -15,16 +18,15 @@ export const SlideHome = ({ banners }: any) => {
     xl: 5 / 2,
   });
   const padding = useBreakpointValue({
-    base: "20px",
-    sm: "40px",
-    md: "60px",
-    lg: "80px",
-    xl: "100px",
+    base: "2px",
+    sm: "4px",
+    md: "6px",
+    lg: "8px",
+    xl: "5px",
   });
   const settings = {
-    centerMode: true,
     className: "homeslider",
-    centerPadding: padding,
+
     slidesToShow: 1,
     speed: 500,
     autoplaySpeed: 5000,
@@ -45,13 +47,23 @@ export const Card = ({ ratio, url }: any) => {
   return (
     <Box>
       <AspectRatio ratio={ratio}>
-        <Image
-          fallbackSrc="https://via.placeholder.com/150"
-          src={url.imageUrl}
-          borderRadius={24}
-          alt="sd"
-          bg="blackAlpha.700"
-        />
+        <Flex
+          color="white"
+          bgSize={"cover"}
+          h="40vh"
+          bg={`url(${url.imageUrl}) no-repeat center`}
+          backgroundAttachment="fixed"
+        >
+          <Stack justifyContent="center">
+            <Text fontWeight="bold" textAlign="center" fontSize="7xl">
+              Bodi Tour
+            </Text>
+            <Box boxShadow="xl" h="3px" w="70%" bg="white" alignSelf="center" />
+            <Text textAlign="center" pt={5} fontWeight="bold" fontSize="3xl">
+              대자연의 나라 몽골에 초대합니다
+            </Text>
+          </Stack>
+        </Flex>
       </AspectRatio>
     </Box>
   );
