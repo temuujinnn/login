@@ -19,8 +19,16 @@ import Link from "next/link";
 
 const support = [
   `${"대한민국 홍찬식작협찬"}`,
-  "Erdenebulgan",
+  "Photographer Erdenebulgan",
   "Bayandorj Lkhagvadorj",
+];
+const partner = [
+  "Mongolian tourism association",
+  "Busan tourism association",
+  "MIAT",
+  "HUNNU Air",
+  "Aero Mongolia",
+  "Mongolian hotel association",
 ];
 const Footer = () => {
   const icons = [
@@ -41,7 +49,7 @@ const Footer = () => {
           my={["10px", "40px"]}
           px={["15px", "15px", "40px", "", "20px"]}
           mx="auto"
-          columns={[1, 2, 3]}
+          columns={[1, 2, 4]}
           spacing={10}
         >
           <Stack spacing={10}>
@@ -110,16 +118,21 @@ const Footer = () => {
               </Stack>
             </HStack>
           </Stack>
-          <Stack spacing={10}>
+          <Stack spacing={2}>
             <Text fontSize="2xl">Picture By</Text>
             {support.map((el: any, ind: number) => {
               return (
-                <Text
-                  textDecoration="underline"
-                  fontSize="lg"
-                  opacity="0.8"
-                  key={ind}
-                >
+                <Text fontSize="8px" opacity="0.8" key={ind}>
+                  {el}
+                </Text>
+              );
+            })}
+          </Stack>
+          <Stack spacing={2}>
+            <Text fontSize="2xl">Partnership</Text>
+            {partner.map((el: any, ind: number) => {
+              return (
+                <Text fontSize="xs" opacity="1" key={ind}>
                   {el}
                 </Text>
               );

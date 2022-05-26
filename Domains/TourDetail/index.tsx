@@ -121,12 +121,12 @@ export const TourDetail = ({ data }: any) => {
                                 </HStack>
                               );
                             })}
-                            <HStack justifyContent="center">
+                            <HStack w="100%" justifyContent="center">
                               <Link href="/attraction">
-                                <Button>관광지 소개</Button>
+                                <Button fontSize="10px">관광지 소개</Button>
                               </Link>
                               <Link href="/camps">
-                                <Button>여행지 숙소</Button>
+                                <Button fontSize="10px">여행지 숙소</Button>
                               </Link>
                             </HStack>
                           </AccordionPanel>

@@ -1,4 +1,4 @@
-import { Box, HStack, Text } from "@chakra-ui/react";
+import { Box, HStack, Image, Text } from "@chakra-ui/react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FiMenu } from "react-icons/fi";
@@ -40,6 +40,10 @@ const Header = ({ onOpen }: Header) => {
       boxShadow={router.pathname === "/" && offset === 0 ? "" : "xl"}
       justifyContent={["space-between", "center"]}
     >
+      {/* <Image
+        src="https://cdn.discordapp.com/attachments/967177210706411523/979395250076418118/280657499_689840118785053_5800182640897149919_n.jpg"
+        alt="bodi tour"
+      /> */}
       <Box w="10px" />
       {header.map((el: any, ind: number) => {
         return (

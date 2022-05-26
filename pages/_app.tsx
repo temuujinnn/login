@@ -7,10 +7,10 @@ import LayOut from "../Layout";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
+import Head from "next/head";
 function MyApp(AppProps: AppProps) {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
-
   useEffect(() => {
     axios.defaults.headers.common["Cache-Control"] = "no-store";
     const handleRouteStart = (url: string) => {
@@ -36,8 +36,35 @@ function MyApp(AppProps: AppProps) {
       router.events.off("routeChangeError", handleRouteComplete);
     };
   }, [router.events]);
+
+  const [title, setTitle] = useState("");
+
+  useEffect(() => {
+    const pathname = router.pathname
+      .split("/")[1]
+      .replaceAll("-", " ")
+      .split(" ");
+    if (pathname.length === 1) return setTitle("Home");
+    if (pathname.length === 0) return setTitle("Home");
+    setTitle(
+      pathname.map((el) => el.charAt(0).toUpperCase() + el.slice(1)).join(" ")
+    );
+  }, [router]);
+  console.log(router.pathname);
   return (
     <ChakraProvider theme={Theme}>
+      {router.pathname === "/" ? (
+        <Head>
+          <title>{"여행은 보디투어"}</title>
+          <link rel="icon" href="/logo_white.png" type="image/png" />
+        </Head>
+      ) : (
+        <Head>
+          <title>{title}</title>
+          <link rel="icon" href="/logo_white.png" type="image/png" />
+        </Head>
+      )}
+
       <ColorProvider>
         <LayOut {...AppProps} loading={loading} />
       </ColorProvider>
