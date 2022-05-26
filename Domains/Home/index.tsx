@@ -25,27 +25,13 @@ import Link from "next/link";
 import { SubHeader } from "../../Component/SubHeader";
 import { MySpinner } from "../../Component/MySpinner";
 
-export const Home = () => {
-  const { bg } = useColor();
+export const Home = ({ isLoading, data }: any) => {
   const whyTour = [
     { icon: FaRegHandshake, title: "100% 믿을 수 있는 여행사" },
     { icon: GiTeamIdea, title: "8+년 여행 경험 " },
     { icon: BiHappy, title: "90%가 여행자의 행복합니다" },
   ];
-  const [data, setData] = useState<any>();
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  useEffect(() => {
-    setIsLoading(true);
-    axios
-      .get(`${process.env.NEXT_PUBLIC_BASE_URL}/home`)
-      .then((res) => {
-        setIsLoading(false);
-        setData(res.data.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+
   useEffect(() => {}, [isLoading]);
   if (!data) {
     return null;

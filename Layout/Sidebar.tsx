@@ -43,10 +43,8 @@ const Sidebar = ({ isOpen, onClose }: Sidebar) => {
   const header = [
     { title: "홈페이지", link: "/" },
     { title: "관광지 소개", link: "/attraction" },
-    { title: "여행 상품", link: "/travel_list" },
     { title: "여행지 숙소", link: "/camps" },
-    { title: "연락처", link: "/contact" },
-    { title: "Q/A", link: "/faq" },
+    // { title: "Q/A", link: "/faq" },
   ];
 
   const icons = [

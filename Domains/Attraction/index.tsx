@@ -18,19 +18,24 @@ import {
 import axios from "axios";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { MySpinner } from "../../Component/MySpinner";
 import { Container } from "../../Theme/common";
-export const Attraction = () => {
+export const Attraction = ({ loading }: any) => {
   const [data, setData] = useState<any>([]);
   const [index, setIndex] = useState<any>(0);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true);
     axios
       .get(`${process.env.NEXT_PUBLIC_BASE_URL}/attraction`)
       .then((res) => {
+        setIsLoading(false);
         console.log(res.data);
         setData(res.data.data);
       })
       .catch((err) => {
+        setIsLoading(false);
         console.log(err);
       });
   }, []);
@@ -40,51 +45,55 @@ export const Attraction = () => {
 
     onOpen();
   };
-  console.log(data);
+
   return (
     <>
       <Box h="100px" />
-      <Stack
-        w="100%"
-        h="100%"
-        maxW={Container}
-        my={["10px", "40px"]}
-        px={["15px", "15px", "40px", "", "20px"]}
-        mx="auto"
-      >
-        <SimpleGrid spacing={10} columns={[1, 3]}>
-          {data?.map((el: any, ind: number) => {
-            return (
-              <AspectRatio key={ind} maxH="400px" ratio={1 / 1}>
-                <Stack
-                  cursor={"pointer"}
-                  onClick={() => handler(ind)}
-                  p={4}
-                  boxShadow="xl"
-                >
-                  <Image h="80%" src={el.image} alt="bodi tour" />
-                  <Text fontSize="2xl" fontWeight="bold">
-                    {el.name}
-                  </Text>
-                  <Text w="100%" isTruncated>
-                    {el.description}
-                  </Text>
-                  <MyModal
-                    ind={ind}
-                    isOpen={isOpen}
-                    onClose={onClose}
-                    name={el.name}
-                    description={el.description}
-                    image={el.image}
-                    index={index}
-                    camps={el.camps}
-                  />
-                </Stack>
-              </AspectRatio>
-            );
-          })}
-        </SimpleGrid>
-      </Stack>
+      {loading === false && isLoading === true ? (
+        <MySpinner />
+      ) : (
+        <Stack
+          w="100%"
+          h="100%"
+          maxW={Container}
+          my={["10px", "40px"]}
+          px={["15px", "15px", "40px", "", "20px"]}
+          mx="auto"
+        >
+          <SimpleGrid spacing={10} columns={[1, 3]}>
+            {data?.map((el: any, ind: number) => {
+              return (
+                <AspectRatio key={ind} maxH="400px" ratio={1 / 1}>
+                  <Stack
+                    cursor={"pointer"}
+                    onClick={() => handler(ind)}
+                    p={4}
+                    boxShadow="xl"
+                  >
+                    <Image h="80%" src={el.image} alt="bodi tour" />
+                    <Text fontSize="2xl" fontWeight="bold">
+                      {el.name}
+                    </Text>
+                    <Text w="100%" isTruncated>
+                      {el.description}
+                    </Text>
+                    <MyModal
+                      ind={ind}
+                      isOpen={isOpen}
+                      onClose={onClose}
+                      name={el.name}
+                      description={el.description}
+                      image={el.image}
+                      index={index}
+                      camps={el.camps}
+                    />
+                  </Stack>
+                </AspectRatio>
+              );
+            })}
+          </SimpleGrid>
+        </Stack>
+      )}
     </>
   );
 };

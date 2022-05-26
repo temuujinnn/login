@@ -34,6 +34,8 @@ export const TourList = ({ data }: any) => {
                 <AspectRatio ratio={1 / 1}>
                   <Stack boxShadow="xl" key={ind} cursor="pointer">
                     <Image
+                      h="200px"
+                      w="100%"
                       _hover={{
                         transform: "scale(1.05)",
                         boderRadius: "0",

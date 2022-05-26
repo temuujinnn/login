@@ -15,9 +15,20 @@ import { RiKakaoTalkLine } from "react-icons/ri";
 import { SiNaver } from "react-icons/si";
 import { BiPhoneCall, BiMailSend } from "react-icons/bi";
 import { SiGooglemaps } from "react-icons/si";
-const icons = [FaFacebookF, BsInstagram, RiKakaoTalkLine, SiNaver];
-const support = ["Contact Us", "About Us", "Travel Guide "];
+import Link from "next/link";
+
+const support = [
+  `${"대한민국 홍찬식작협찬"}`,
+  "Erdenebulgan",
+  "Bayandorj Lkhagvadorj",
+];
 const Footer = () => {
+  const icons = [
+    { icon: FaFacebookF, link: "https://www.facebook.com/boditour/" },
+    { icon: BsInstagram, link: "https://www.instagram.com/bodi_tour/" },
+    { icon: RiKakaoTalkLine, link: "http://pf.kakao.com/_Prqaj" },
+    { icon: SiNaver, link: "https://cafe.naver.com/lovemongol" },
+  ];
   return (
     <>
       <Stack pt="100px" pb={10} bg="brandGray.800">
@@ -43,13 +54,18 @@ const Footer = () => {
             <HStack>
               {icons.map((el: any, ind: number) => {
                 return (
-                  <Icon
-                    key={ind}
-                    cursor="pointer"
-                    color="brand.700"
-                    fontSize="2xl"
-                    as={el}
-                  />
+                  <Link href={el.link}>
+                    <a target="_blank">
+                      {" "}
+                      <Icon
+                        key={ind}
+                        cursor="pointer"
+                        color="brand.700"
+                        fontSize="2xl"
+                        as={el.icon}
+                      />
+                    </a>
+                  </Link>
                 );
               })}
             </HStack>
@@ -57,21 +73,35 @@ const Footer = () => {
           <Stack spacing={10}>
             <Text fontSize="2xl">Contact Us</Text>
             <HStack spacing={5}>
-              <Icon fontSize="3xl" color="brand.700" as={BiPhoneCall} />
+              <Icon
+                onClick={() => window.open("tel:+010 7777 9176")}
+                fontSize="3xl"
+                color="brand.700"
+                as={BiPhoneCall}
+              />
               <Stack>
                 <Text>+010 7777 9176</Text>
+
                 <Text>+97699916532</Text>
               </Stack>
             </HStack>
             <HStack spacing={5}>
-              <Icon fontSize="3xl" color="brand.700" as={BiMailSend} />
+              <Link href="https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcSKkHbjxmChltFsJHnKlBlpCSglZQrRwvHjfZSfWWqFSZjRTkbVQbtxnsQjKHSxmJdWfjvjs">
+                <a target="_blank">
+                  <Icon fontSize="3xl" color="brand.700" as={BiMailSend} />
+                </a>
+              </Link>
               <Stack>
                 <Text>boditour77779176@gmail.com</Text>
                 <Text>kakao talk: gimme333</Text>
               </Stack>
             </HStack>
             <HStack spacing={5}>
-              <Icon fontSize="3xl" color="brand.700" as={SiGooglemaps} />
+              <Link href="https://goo.gl/maps/nUqoZMqsCqY9RvGPA">
+                <a target="_blank">
+                  <Icon fontSize="3xl" color="brand.700" as={SiGooglemaps} />
+                </a>
+              </Link>
               <Stack>
                 <Text>
                   Ulaanbaatar, Mongolia Sukhbaatar district Seoul street, Time
@@ -81,10 +111,15 @@ const Footer = () => {
             </HStack>
           </Stack>
           <Stack spacing={10}>
-            <Text fontSize="2xl">Support</Text>
+            <Text fontSize="2xl">Picture By</Text>
             {support.map((el: any, ind: number) => {
               return (
-                <Text key={ind} cursor="pointer">
+                <Text
+                  textDecoration="underline"
+                  fontSize="lg"
+                  opacity="0.8"
+                  key={ind}
+                >
                   {el}
                 </Text>
               );
@@ -98,9 +133,9 @@ const Footer = () => {
           </Text>
           <Text color="brand.700">Bodi Tour</Text>
           <Text color="white" textAlign="center">
-            | Designed By
+            | Developed By
           </Text>
-          <Text color="brand.700"> 0xTeMk4</Text>
+          <Text color="brand.700">Bodi Tour team</Text>
         </HStack>
       </Stack>
     </>
