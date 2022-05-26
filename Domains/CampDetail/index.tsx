@@ -28,7 +28,7 @@ export const CampDetail = ({ data }: any) => {
     arrows: false,
     borderRadius: 12,
   };
-  console.log(data);
+
   return (
     <>
       <Box h="100px" />

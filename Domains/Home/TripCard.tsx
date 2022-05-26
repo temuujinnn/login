@@ -12,7 +12,6 @@ import { Container } from "../../Theme/common";
 import { GoCalendar } from "react-icons/go";
 import { GrMap } from "react-icons/gr";
 export const TripCard = (data: any) => {
-  console.log("dsa", data);
   return (
     <>
       <Stack cursor="pointer">

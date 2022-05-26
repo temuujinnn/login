@@ -39,7 +39,6 @@ export const Home = () => {
     axios
       .get(`${process.env.NEXT_PUBLIC_BASE_URL}/home`)
       .then((res) => {
-        console.log(res);
         setIsLoading(false);
         setData(res.data.data);
       })
@@ -66,7 +65,7 @@ export const Home = () => {
             w="100%"
             h="100%"
             maxW={Container}
-            bg="gray.300"
+            bg="white"
             my={["10px", "90px"]}
             px={["15px", "15px", "40px", "", "20px"]}
             mx="auto"
@@ -76,7 +75,7 @@ export const Home = () => {
             <Text textAlign="center" fontWeight="bold" fontSize="4xl">
               Regions
             </Text>
-            <SimpleGrid gap={10} columns={[1, 2, 2, 4, 4]}>
+            <SimpleGrid gap={10} columns={[1, 2, 2, 4, 3]}>
               {data?.tourTypes?.map((el: any, ind: number) => {
                 return (
                   <Link href={`tourlist/${el._id}`}>
@@ -86,6 +85,7 @@ export const Home = () => {
                         borderRadius="12px"
                         key={ind}
                         cursor="pointer"
+                        border="1px solid gray"
                         justifyContent="space-between"
                       >
                         <Image
@@ -106,9 +106,18 @@ export const Home = () => {
                           justifyContent="center"
                           w="100%"
                         >
-                          <Text py={2} color="white" fontSize="4xl">
-                            {el.name}
-                          </Text>
+                          <Flex
+                            w="100%"
+                            alignItems="center"
+                            px={4}
+                            py={1}
+                            justifyContent="space-between"
+                          >
+                            <Text py={2} color="white" fontSize="2xl">
+                              {el.name}
+                            </Text>
+                            <Button>Explore</Button>
+                          </Flex>
                         </Flex>
                       </Stack>
                     </AspectRatio>

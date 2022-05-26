@@ -12,6 +12,8 @@ import {
   AccordionIcon,
   useBreakpointValue,
   AspectRatio,
+  StackDivider,
+  Button,
 } from "@chakra-ui/react";
 import { Container } from "../../Theme/common";
 
@@ -21,6 +23,7 @@ import {
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
+import Link from "next/link";
 export const TourDetail = ({ data }: any) => {
   const ratio = useBreakpointValue({
     base: 2 / 3,
@@ -51,8 +54,7 @@ export const TourDetail = ({ data }: any) => {
       >
         <HStack>
           <Stack w="100%">
-            <Text fontSize="2xl">{data?.tourName}</Text>
-            <Box py={20}>
+            <Box py={5}>
               <Slider {...settings}>
                 {data.images?.map((el: any, ind: number) => {
                   return (
@@ -67,6 +69,16 @@ export const TourDetail = ({ data }: any) => {
                 })}
               </Slider>
             </Box>
+            <Box py={10}>
+              <Text
+                fontWeight="bold"
+                fontFamily="'Londrina Shadow', cursive"
+                fontSize="3xl"
+              >
+                {data?.tourName}
+              </Text>
+            </Box>
+
             <Box w={["100%"]}>
               <VerticalTimeline layout="1-column">
                 {data.days?.map((el: any, ind: number) => {
@@ -76,6 +88,7 @@ export const TourDetail = ({ data }: any) => {
                       iconStyle={{
                         background: "#BF3325",
                         color: "#fff",
+                        padding: 0,
                       }}
                     >
                       <Accordion
@@ -87,22 +100,35 @@ export const TourDetail = ({ data }: any) => {
                         <AccordionItem>
                           <h2>
                             <AccordionButton>
-                              <Box flex="1" textAlign="left">
+                              <Box
+                                flex="1"
+                                fontSize="lg"
+                                fontWeight="semibold"
+                                textAlign="left"
+                              >
                                 {el.title}
                               </Box>
                               <AccordionIcon />
                             </AccordionButton>
                           </h2>
-                          <AccordionPanel pb={4}>
+                          <AccordionPanel>
                             {el.schedule.map((el: any, ind: number) => {
                               return (
-                                <HStack>
-                                  <HStack my={3} spacing={6}>
-                                    <Text>{el}</Text>
-                                  </HStack>
+                                <HStack my={3} spacing={6}>
+                                  <Text borderBottom="1px solid gray" w="100%">
+                                    {el}
+                                  </Text>
                                 </HStack>
                               );
                             })}
+                            <HStack justifyContent="center">
+                              <Link href="/attraction">
+                                <Button>관광지 소개</Button>
+                              </Link>
+                              <Link href="/camps">
+                                <Button>여행지 숙소</Button>
+                              </Link>
+                            </HStack>
                           </AccordionPanel>
                         </AccordionItem>
                       </Accordion>
@@ -111,6 +137,9 @@ export const TourDetail = ({ data }: any) => {
                 })}
               </VerticalTimeline>
             </Box>
+
+            <Image src={data.roadMap} />
+            <Image src={data.included} />
           </Stack>
         </HStack>
       </Stack>

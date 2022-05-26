@@ -12,7 +12,6 @@ export default function CreatorsPage() {
       axios
         .get(`${process.env.NEXT_PUBLIC_BASE_URL}/toursingle?tourId=${id}`)
         .then((res) => {
-          console.log(res);
           setData(res.data.data);
         })
         .catch((err) => {

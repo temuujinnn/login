@@ -23,7 +23,6 @@ export default function CreatorsPage() {
   if (!data) {
     return null;
   }
-  console.log(data);
 
   return <CampDetail data={data} />;
 }

@@ -9,14 +9,13 @@ export const Camps = () => {
     axios
       .get(`${process.env.NEXT_PUBLIC_BASE_URL}/camps`)
       .then((res) => {
-        console.log(res.data.data);
         setData(res.data.data);
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
-  console.log(data);
+
   return (
     <Stack
       w="100%"
