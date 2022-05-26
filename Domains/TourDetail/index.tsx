@@ -139,7 +139,16 @@ export const TourDetail = ({ data }: any) => {
             </Box>
 
             <Image src={data.roadMap} />
-            <Image src={data.included} />
+            <Image pb={10} src={data.included} />
+            <Box w="50%" alignSelf="center" mx="auto">
+              <Link href="https://namecard.kakao.com/boditour">
+                <a target="_blank">
+                  <Button bg="#FF6166" w="100%">
+                    예약 하기
+                  </Button>
+                </a>
+              </Link>
+            </Box>
           </Stack>
         </HStack>
       </Stack>

@@ -28,3 +28,15 @@ a {
 .homespecial .slick-slide {
   transform: scale(0.95);
 }
+.loader {
+  top: 0;
+  z-index: 1000000;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+}
+
+.imageLoader {
+  animation: rotation 1s infinite linear;
+}

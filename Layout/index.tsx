@@ -14,7 +14,9 @@ import Header from "./Header";
 import Footer from "./Footer";
 import Sidebar from "./Sidebar";
 import Link from "next/link";
-const LayOut = ({ Component, pageProps }: AppProps) => {
+import { MySpinner } from "../Component/MySpinner";
+import Loader from "../Component/Loader";
+const LayOut = ({ Component, pageProps, loading }: AppProps) => {
   const {
     isOpen: drawerIsOpen,
     onClose: drawerOnClose,
@@ -35,6 +37,7 @@ const LayOut = ({ Component, pageProps }: AppProps) => {
     <>
       <NextNProgress />
       <Header onOpen={drawerOnOpen} />
+      {loading ? <Loader /> : null}
       <Component {...pageProps} />
       <Sidebar isOpen={drawerIsOpen} onClose={drawerOnClose} />
       <Link href="https://namecard.kakao.com/boditour">

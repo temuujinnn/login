@@ -17,29 +17,31 @@ export const Camps = () => {
   }, []);
 
   return (
-    <Stack
-      w="100%"
-      h="100%"
-      maxW={Container}
-      my={["10px", "40px"]}
-      px={["15px", "15px", "40px", "", "20px"]}
-      mx="auto"
-    >
-      <Box h="10vh" />
-      <SimpleGrid columns={[1, 2, 3, 4, 5]}>
-        {data.map((el: any, ind: number) => {
-          return (
-            <Link key={ind} href={el?._id}>
-              <Stack p={1} _hover={{ boxShadow: "2xl" }}>
-                <Image src={el?.banner} />
-                <Text fontWeight="bold" py={2} textAlign="center">
-                  {el.name}
-                </Text>
-              </Stack>
-            </Link>
-          );
-        })}
-      </SimpleGrid>
-    </Stack>
+    <>
+      <Box h="100px" />
+      <Stack
+        w="100%"
+        h="100%"
+        maxW={Container}
+        my={["10px", "40px"]}
+        px={["15px", "15px", "40px", "", "20px"]}
+        mx="auto"
+      >
+        <SimpleGrid columns={[1, 2, 3, 4, 5]}>
+          {data.map((el: any, ind: number) => {
+            return (
+              <Link key={ind} href={el?._id}>
+                <Stack p={1} _hover={{ boxShadow: "2xl" }}>
+                  <Image src={el?.banner} />
+                  <Text fontWeight="bold" py={2} textAlign="center">
+                    {el.name}
+                  </Text>
+                </Stack>
+              </Link>
+            );
+          })}
+        </SimpleGrid>
+      </Stack>
+    </>
   );
 };
