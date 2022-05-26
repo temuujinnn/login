@@ -46,6 +46,7 @@ export const Home = () => {
         console.log(err);
       });
   }, []);
+  useEffect(() => {}, [isLoading]);
   if (!data) {
     return null;
   }

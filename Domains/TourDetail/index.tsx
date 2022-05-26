@@ -137,9 +137,22 @@ export const TourDetail = ({ data }: any) => {
                 })}
               </VerticalTimeline>
             </Box>
+            <HStack
+              flexDir={["column", "row"]}
+              pb={10}
+              alignItems="center"
+              justifyContent="center"
+              w="100%"
+            >
+              <Image p={[0, 10]} w={["100%", "50%"]} src={data.roadMap} />
+              <Image
+                mt={[10, 0]}
+                p={[0, 10]}
+                w={["100%", "50%"]}
+                src={data.included}
+              />
+            </HStack>
 
-            <Image src={data.roadMap} />
-            <Image pb={10} src={data.included} />
             <Box w="50%" alignSelf="center" mx="auto">
               <Link href="https://namecard.kakao.com/boditour">
                 <a target="_blank">
