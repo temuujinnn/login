@@ -74,9 +74,9 @@ export const Attraction = ({ loading }: any) => {
                     <Text fontSize="2xl" fontWeight="bold">
                       {el.name}
                     </Text>
-                    <Text w="100%" isTruncated>
+                    {/* <Text w="100%" isTruncated>
                       {el.description}
-                    </Text>
+                    </Text> */}
                     <MyModal
                       ind={ind}
                       isOpen={isOpen}

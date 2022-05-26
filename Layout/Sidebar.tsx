@@ -65,7 +65,7 @@ const Sidebar = ({ isOpen, onClose }: Sidebar) => {
             {header.map((el: any, ind: number) => {
               return (
                 <Link key={ind} href={el.link} passHref>
-                  <Stack p={2}>
+                  <Stack onClick={onClose} p={2}>
                     <Text fontSize="xl" fontWeight="semibold">
                       {el.title}
                     </Text>
