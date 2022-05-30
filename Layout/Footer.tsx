@@ -122,7 +122,7 @@ const Footer = () => {
             <Text fontSize="2xl">Picture By</Text>
             {support.map((el: any, ind: number) => {
               return (
-                <Text fontSize="8px" opacity="0.8" key={ind}>
+                <Text fontSize="xs" opacity="0.8" key={ind}>
                   {el}
                 </Text>
               );
@@ -132,7 +132,7 @@ const Footer = () => {
             <Text fontSize="2xl">Partnership</Text>
             {partner.map((el: any, ind: number) => {
               return (
-                <Text fontSize="xs" opacity="1" key={ind}>
+                <Text fontSize="md" opacity="1" key={ind}>
                   {el}
                 </Text>
               );

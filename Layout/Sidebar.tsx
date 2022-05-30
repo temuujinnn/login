@@ -44,7 +44,7 @@ const Sidebar = ({ isOpen, onClose }: Sidebar) => {
     { title: "홈페이지", link: "/" },
     { title: "관광지 소개", link: "/attraction" },
     { title: "여행지 숙소", link: "/camps" },
-    // { title: "Q/A", link: "/faq" },
+    { title: "Q/A", link: "/faq" },
   ];
 
   const icons = [
@@ -55,7 +55,6 @@ const Sidebar = ({ isOpen, onClose }: Sidebar) => {
   ];
   return (
     <Drawer {...props}>
-      {/* <DrawerOverlay /> */}
       <DrawerContent>
         <DrawerHeader>
           <DrawerCloseButton />

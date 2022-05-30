@@ -11,7 +11,7 @@ import {
 import Slider from "react-slick";
 import { Container } from "../../Theme/common";
 import { AiFillStar } from "react-icons/ai";
-export const CampDetail = ({ data }: any) => {
+export const CampDetail = ({ data, loading }: any) => {
   const ratio = useBreakpointValue({
     base: 2 / 3,
     md: 1,

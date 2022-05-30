@@ -8,7 +8,7 @@ const header = [
   { title: "홈페이지", link: "/" },
   { title: "관광지 소개", link: "/attraction" },
   { title: "여행지 숙소", link: "/camps" },
-  // { title: "Q/A", link: "/faq" },
+  { title: "Q/A", link: "/faq" },
 ];
 interface Header {
   onOpen: () => void;
