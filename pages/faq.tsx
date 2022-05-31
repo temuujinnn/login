@@ -51,7 +51,7 @@ export default function FaqPage({ loading }: any) {
         <Accordion allowMultiple>
           {QA.map((el: any, ind: number) => {
             return (
-              <AccordionItem p={5}>
+              <AccordionItem key={ind} p={5}>
                 {({ isExpanded }) => (
                   <>
                     <h2>
