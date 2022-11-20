@@ -55,7 +55,7 @@ function MyApp(AppProps: AppProps) {
     <ChakraProvider theme={Theme}>
       {router.pathname === "/" ? (
         <Head>
-          <title>{"여행은 보디투어"}</title>
+          <title>{"Travel Guide"}</title>
           <link rel="icon" href="/logo_white.png" type="image/png" />
         </Head>
       ) : (

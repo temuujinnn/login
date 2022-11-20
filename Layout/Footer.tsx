@@ -32,10 +32,10 @@ const partner = [
 ];
 const Footer = () => {
   const icons = [
-    { icon: FaFacebookF, link: "https://www.facebook.com/boditour/" },
-    { icon: BsInstagram, link: "https://www.instagram.com/bodi_tour/" },
-    { icon: RiKakaoTalkLine, link: "http://pf.kakao.com/_Prqaj" },
-    { icon: SiNaver, link: "https://cafe.naver.com/lovemongol" },
+    { icon: FaFacebookF, link: "" },
+    { icon: BsInstagram, link: "" },
+    { icon: RiKakaoTalkLine, link: "" },
+    { icon: SiNaver, link: "" },
   ];
   return (
     <>
@@ -53,10 +53,10 @@ const Footer = () => {
           spacing={10}
         >
           <Stack spacing={10}>
-            <Text fontSize="2xl">Bodi Tour</Text>
+            <Text fontSize="2xl">Travel.Guide</Text>
             <Text>
-              베테랑 기사, 한국어 소통 가능한 가이드, <br /> 24시간 한국
-              상담원이 항시 대기 중입니다^^
+              {/* 베테랑 기사, 한국어 소통 가능한 가이드, <br /> 24시간 한국
+              상담원이 항시 대기 중입니다^^ */}
             </Text>
             <Text fontSize="2xl">Follow Us:</Text>
             <HStack>
@@ -88,9 +88,9 @@ const Footer = () => {
                 as={BiPhoneCall}
               />
               <Stack>
-                <Text>+010 7777 9176</Text>
+                <Text></Text>
 
-                <Text>+97699916532</Text>
+                <Text>+976-9999999</Text>
               </Stack>
             </HStack>
             <HStack spacing={5}>
@@ -100,8 +100,8 @@ const Footer = () => {
                 </a>
               </Link>
               <Stack>
-                <Text>boditour77779176@gmail.com</Text>
-                <Text>kakao talk: gimme333</Text>
+                <Text>Travel.Guide</Text>
+                {/* <Text>kakao talk: gimme333</Text> */}
               </Stack>
             </HStack>
             <HStack spacing={5}>

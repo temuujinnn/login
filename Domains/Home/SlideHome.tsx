@@ -56,11 +56,12 @@ export const Card = ({ ratio, url }: any) => {
         >
           <Stack justifyContent="center">
             <Text fontWeight="bold" textAlign="center" fontSize="7xl">
-              Bodi Tour
+              Travel.Guide
             </Text>
             <Box boxShadow="xl" h="3px" w="70%" bg="white" alignSelf="center" />
             <Text textAlign="center" pt={5} fontWeight="bold" fontSize="3xl">
-              대자연의 나라 몽골에 초대합니다
+               ТА ӨӨРИЙН АМЬДРАЛЫН ХАМГИЙН САЙХАН ДУРСАМЖАА  <br />
+              БИДНЭЭР ДАМЖУУЛАН БҮТЭЭГЭЭРЭЙ ...
             </Text>
           </Stack>
         </Flex>
