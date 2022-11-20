@@ -2,8 +2,12 @@ import {
   AspectRatio,
   Box,
   Button,
+  ButtonGroup,
+  Divider,
   Flex,
+  HStack,
   Image,
+  Select,
   Stack,
   Text,
   useBreakpointValue,
@@ -53,6 +57,7 @@ export const Card = ({ ratio, url }: any) => {
           h="40vh"
           bg={`url(${url.imageUrl}) no-repeat center`}
           backgroundAttachment="fixed"
+          flexDir="column"
         >
           <Stack justifyContent="center">
             <Text fontWeight="bold" textAlign="center" fontSize="7xl">
@@ -63,6 +68,35 @@ export const Card = ({ ratio, url }: any) => {
                ТА ӨӨРИЙН АМЬДРАЛЫН ХАМГИЙН САЙХАН ДУРСАМЖАА  <br />
               БИДНЭЭР ДАМЖУУЛАН БҮТЭЭГЭЭРЭЙ ...
             </Text>
+          </Stack>
+          <Stack p={6} w="900px" borderRadius={"16px"} bg="white">
+            <HStack justifyContent={"space-evenly"}>
+              <Text color={"black"}>Байршил</Text>
+              <Text color={"black"}>Төрөл</Text>
+              <Text color={"black"}>Үнийн дүн</Text>
+            </HStack>
+            <Divider />
+            <HStack justifyContent={"space-evenly"}>
+              <Select w="50%" color={"black"}>
+                <option>Архангай</option>
+                <option>Архангай</option>
+                <option>Архангай</option>
+                <option>Архангай</option>
+                <option>Архангай</option>
+                <option>Архангай</option>
+              </Select>
+              <Select w="50%" color={"black"}>
+                <option>5 хоног</option>
+                <option>5 хоног</option>
+                <option>5 хоног</option>
+              </Select>
+              <Select w="50%" color={"black"}>
+                <option>1,000,000-5,000,000</option>
+                <option>1,000,000-5,000,000</option>
+                <option>1,000,000-5,000,000</option>
+              </Select>
+            </HStack>
+            <Button>Хайх</Button>
           </Stack>
         </Flex>
       </AspectRatio>
