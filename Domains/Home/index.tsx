@@ -27,9 +27,9 @@ import { MySpinner } from "../../Component/MySpinner";
 
 export const Home = ({ isLoading, data }: any) => {
   const whyTour = [
-    { icon: FaRegHandshake, title: "100% 믿을 수 있는 여행사" },
-    { icon: GiTeamIdea, title: "8+년 여행 경험 " },
-    { icon: BiHappy, title: "90%가 여행자의 행복합니다" },
+    { icon: FaRegHandshake, title: "100% Итгэж болох хамт олон" },
+    { icon: GiTeamIdea, title: "2+ жилийн туршлага" },
+    { icon: BiHappy, title: "99% Амжилттай захиалга" },
   ];
 
   useEffect(() => {}, [isLoading]);
@@ -60,12 +60,12 @@ export const Home = ({ isLoading, data }: any) => {
             spacing={10}
           >
             <Text textAlign="center" fontWeight="bold" fontSize="4xl">
-              Regions
+              Аялалын төрөл
             </Text>
             <SimpleGrid gap={10} columns={[1, 2, 2, 4, 3]}>
               {data?.tourTypes?.map((el: any, ind: number) => {
                 return (
-                  <Link href={`tourlist/${el._id}`}>
+                  <Link key={ind} href={`tourlist/${el._id}`}>
                     <AspectRatio ratio={1 / 1}>
                       <Stack
                         boxShadow="xl"
@@ -76,6 +76,7 @@ export const Home = ({ isLoading, data }: any) => {
                         justifyContent="space-between"
                       >
                         <Image
+                          alt="ss"
                           _hover={{
                             transform: "scale(1.05)",
                             boderRadius: "0",
@@ -131,12 +132,12 @@ export const Home = ({ isLoading, data }: any) => {
             mx="auto"
             spacing={10}
           >
-            <SubHeader text="보디투어로 여행하는 이유" />
+            <SubHeader text="Яагаад биднийг сонгох хэрэгтэй вэ?" />
             <Box h="10px" />
 
             <SimpleGrid spacing={10} columns={[1, 2, 3]}>
               {whyTour.map((el: any, ind: number) => {
-                return <OurTravel el={el} ind={ind} />;
+                return <OurTravel key={ind} el={el} ind={ind} />;
               })}
             </SimpleGrid>
           </Stack>
