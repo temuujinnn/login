@@ -104,7 +104,7 @@ export const Home = ({ isLoading, data }: any) => {
                             <Text py={2} color="white" fontSize="2xl">
                               {el.name}
                             </Text>
-                            <Button>Explore</Button>
+                            <Button>Дэлгэрэнгүй</Button>
                           </Flex>
                         </Flex>
                       </Stack>
