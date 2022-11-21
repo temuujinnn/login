@@ -65,7 +65,7 @@ export const Home = ({ isLoading, data }: any) => {
             <SimpleGrid gap={10} columns={[1, 2, 2, 4, 3]}>
               {data?.tourTypes?.map((el: any, ind: number) => {
                 return (
-                  <Link key={ind} href={`tourlist/${el._id}`}>
+                  <Link key={ind} href={`tourlist/${el._id}`} passHref>
                     <AspectRatio ratio={1 / 1}>
                       <Stack
                         boxShadow="xl"

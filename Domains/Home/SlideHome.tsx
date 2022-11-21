@@ -61,7 +61,7 @@ export const Card = ({ ratio, url }: any) => {
         >
           <Stack justifyContent="center">
             <Text fontWeight="bold" textAlign="center" fontSize="7xl">
-              Travel.Guide
+              Аялалын Хөтөч
             </Text>
             <Box boxShadow="xl" h="3px" w="70%" bg="white" alignSelf="center" />
             <Text textAlign="center" pt={5} fontWeight="bold" fontSize="3xl">
