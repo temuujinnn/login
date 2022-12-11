@@ -18,12 +18,10 @@ import { MySpinner } from "../Component/MySpinner";
 import Loader from "../Component/Loader";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { UseAuthContext } from "../Context/AuthModalContext";
+import { useUser } from "../Context/UserContext";
+import Auth from "../Component/Auth";
 const LayOut = ({ Component, pageProps, loading }: AppProps) => {
-  const {
-    isOpen: drawerIsOpen,
-    onClose: drawerOnClose,
-    onOpen: drawerOnOpen,
-  } = useDisclosure();
   const spin = keyframes`
   from { transform: translateY(0px)   }
   50% { transform: translateY(8px)   }
@@ -36,20 +34,29 @@ const LayOut = ({ Component, pageProps, loading }: AppProps) => {
     ? undefined
     : `${spin}  2s linear infinite both`;
   const [data, setData] = useState<any>();
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-
+  // const [isLoading, setIsLoading] = useState<boolean>(true);
+  const { isLoading, get_token } = useUser();
+  const { isOpen, onClose, onOpen } = UseAuthContext();
+  const {
+    isOpen: drawerIsOpen,
+    onClose: drawerOnClose,
+    onOpen: drawerOnOpen,
+  } = useDisclosure();
   useEffect(() => {
-    setIsLoading(true);
     axios
       .get(`${process.env.NEXT_PUBLIC_BASE_URL}/home`)
       .then((res) => {
         setData(res.data.data);
-        setIsLoading(false);
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
+  const Handler = () => {
+    console.log("object");
+    onOpen();
+  };
+  const userProps = { isLoading, get_token, Handler, onOpen: drawerOnOpen };
   console.log(isLoading);
   return (
     <>
@@ -58,10 +65,11 @@ const LayOut = ({ Component, pageProps, loading }: AppProps) => {
         <MySpinner />
       ) : (
         <>
-          <Header onOpen={drawerOnOpen} />
+          <Header {...userProps} />
 
           <Component loading={loading} data={data} {...pageProps} />
           <Sidebar isOpen={drawerIsOpen} onClose={drawerOnClose} />
+          <Auth isOpen={isOpen} onClose={onClose} />
           <Link href="https://namecard.kakao.com/boditour">
             <a target="_blank">
               <Flex
@@ -80,6 +88,7 @@ const LayOut = ({ Component, pageProps, loading }: AppProps) => {
               </Flex>
             </a>
           </Link>
+
           <Footer />
         </>
       )}

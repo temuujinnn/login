@@ -1,13 +1,15 @@
 import type { AppProps } from "next/app";
 import { ChakraProvider } from "@chakra-ui/react";
 import Theme from "../Theme";
-import { ColorProvider } from "../Context/ColorContext";
+
 import "../styles/globals.css";
 import LayOut from "../Layout";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
 import Head from "next/head";
+import { UserProvider } from "../Context/UserContext";
+import { AuthModalProvider } from "../Context/AuthModalContext";
 function MyApp(AppProps: AppProps) {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
@@ -53,21 +55,23 @@ function MyApp(AppProps: AppProps) {
   console.log(router.pathname);
   return (
     <ChakraProvider theme={Theme}>
-      {router.pathname === "/" ? (
-        <Head>
-          <title>{"Travel Guide"}</title>
-          <link rel="icon" href="/logo_white.png" type="image/png" />
-        </Head>
-      ) : (
-        <Head>
-          <title>{title}</title>
-          <link rel="icon" href="/logo_white.png" type="image/png" />
-        </Head>
-      )}
+      <UserProvider>
+        <AuthModalProvider>
+          {router.pathname === "/" ? (
+            <Head>
+              <title>{"Travel Guide"}</title>
+              <link rel="icon" href="/logo_white.png" type="image/png" />
+            </Head>
+          ) : (
+            <Head>
+              <title>{title}</title>
+              <link rel="icon" href="/logo_white.png" type="image/png" />
+            </Head>
+          )}
 
-      <ColorProvider>
-        <LayOut {...AppProps} loading={loading} />
-      </ColorProvider>
+          <LayOut {...AppProps} loading={loading} />
+        </AuthModalProvider>
+      </UserProvider>
     </ChakraProvider>
   );
 }

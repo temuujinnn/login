@@ -1,8 +1,9 @@
-import { Box, HStack, Image, Text } from "@chakra-ui/react";
+import { Avatar, Box, Button, HStack, Image, Text } from "@chakra-ui/react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FiMenu } from "react-icons/fi";
 import { useRouter } from "next/router";
+import { Borders, brandGradient } from "../Theme/common";
 import axios from "axios";
 const header = [
   { title: "All activity", link: "/" },
@@ -13,8 +14,14 @@ const header = [
 interface Header {
   onOpen: () => void;
 }
+interface Header {
+  isLoading: boolean;
+  get_token: () => string | undefined;
+  Handler: () => void;
+  onOpen: () => void;
+}
 
-const Header = ({ onOpen }: Header) => {
+const Header = ({ isLoading, get_token, Handler, onOpen }: Header) => {
   const router = useRouter();
   const [offset, setOffset] = useState(0);
 
@@ -60,6 +67,29 @@ const Header = ({ onOpen }: Header) => {
           </Link>
         );
       })}
+      {get_token() ? (
+        <Box pos="relative">
+          <Avatar size="sm" />
+          {/* <DropDown header={header} hide={hide} /> */}
+        </Box>
+      ) : (
+        <Button
+          bgImage={brandGradient}
+          bgSize="300% 100%"
+          color="white"
+          px={["5", "8"]}
+          fontSize="14px"
+          transition=" all .4s ease-in-out"
+          _hover={{
+            backgroundPosition: "100% 0",
+            transition: "all .4s ease-in-out",
+          }}
+          isLoading={isLoading}
+          onClick={get_token() ? () => {} : Handler}
+        >
+          {"Login"}
+        </Button>
+      )}
       <Box
         onClick={onOpen}
         display={["block", "block", "block", "block", "none", "none"]}
