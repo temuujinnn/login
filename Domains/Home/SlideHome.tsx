@@ -61,7 +61,7 @@ export const Card = ({ ratio, url }: any) => {
         >
           <Stack justifyContent="center">
             <Text fontWeight="bold" textAlign="center" fontSize="7xl">
-              Travel.Guide
+              Аялалын Хөтөч
             </Text>
             <Box boxShadow="xl" h="3px" w="70%" bg="white" alignSelf="center" />
             <Text textAlign="center" pt={5} fontWeight="bold" fontSize="3xl">
@@ -78,22 +78,37 @@ export const Card = ({ ratio, url }: any) => {
             <Divider />
             <HStack justifyContent={"space-evenly"}>
               <Select w="50%" color={"black"}>
-                <option>Архангай</option>
-                <option>Архангай</option>
-                <option>Архангай</option>
-                <option>Архангай</option>
-                <option>Архангай</option>
-                <option>Архангай</option>
+                <option>АРХАНГАЙ АЙМАГ</option>
+                <option>БАЯН-ӨЛГИЙ АЙМАГ </option>
+                <option>БАЯНХОНГОР АЙМАГ</option>
+                <option>БУЛГАН АЙМАГ</option>
+                <option>ГОВЬ-АЛТАЙ АЙМАГ</option>
+                <option>ГОВЬСҮМБЭР АЙМАГ</option>
+                <option>ДАРХАН-УУЛ АЙМАГ</option>
+                <option>ДОРНОГОВЬ АЙМАГ</option>
+                <option>ДУНДГОВЬ АЙМАГ</option>
+                <option>ДОРНОД АЙМАГ</option>
+                <option>ЗАВХАН АЙМАГ</option>
+                <option>ОРХОН АЙМАГ</option>
+                <option>ӨВӨРХАНГАЙ АЙМАГ</option>
+                <option>ӨМНӨГОВЬ АЙМАГ</option>
+                <option> СҮХБААТАР АЙМАГ</option>
+                <option> СЭЛЭНГЭ АЙМАГ</option>
+                <option> ТӨВ АЙМАГ</option>
+                <option> УВС АЙМАГ</option>
+                <option> ХОВД АЙМАГ</option>
+                <option> ХӨВСГӨЛ АЙМАГ</option>
+                <option> ХЭНТИЙ АЙМАГ</option>
               </Select>
               <Select w="50%" color={"black"}>
                 <option>5 хоног</option>
-                <option>5 хоног</option>
-                <option>5 хоног</option>
+                <option>10 хоног</option>
+                <option>20 хоног</option>
               </Select>
               <Select w="50%" color={"black"}>
                 <option>1,000,000-5,000,000</option>
-                <option>1,000,000-5,000,000</option>
-                <option>1,000,000-5,000,000</option>
+                <option>6,000,000-10,000,000</option>
+                <option>10,000,000-15,000,000</option>
               </Select>
             </HStack>
             <Button>Хайх</Button>

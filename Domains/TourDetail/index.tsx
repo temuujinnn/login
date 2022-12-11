@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import {
   Box,
   Flex,
@@ -84,6 +85,7 @@ export const TourDetail = ({ data }: any) => {
                 {data.days?.map((el: any, ind: number) => {
                   return (
                     <VerticalTimelineElement
+                      key={ind}
                       className="vertical-timeline-element--work"
                       iconStyle={{
                         background: "#BF3325",
@@ -94,7 +96,6 @@ export const TourDetail = ({ data }: any) => {
                       <Accordion
                         className="vertical-timeline-element-title"
                         bg="white"
-                        key={ind}
                         allowMultiple
                       >
                         <AccordionItem>
@@ -112,7 +113,7 @@ export const TourDetail = ({ data }: any) => {
                             </AccordionButton>
                           </h2>
                           <AccordionPanel>
-                            {el.schedule.map((el: any, ind: number) => {
+                            {el.schedule.map((el: any) => {
                               return (
                                 <HStack my={3} spacing={6}>
                                   <Text borderBottom="1px solid gray" w="100%">
@@ -122,11 +123,13 @@ export const TourDetail = ({ data }: any) => {
                               );
                             })}
                             <HStack w="100%" justifyContent="center">
-                              <Link href="/attraction">
-                                <Button fontSize="10px">관광지 소개</Button>
+                              <Link href="/attraction" passHref>
+                                <Button fontSize="10px">
+                                  Үзэсгэлэнт газрууд
+                                </Button>
                               </Link>
-                              <Link href="/camps">
-                                <Button fontSize="10px">여행지 숙소</Button>
+                              <Link href="/camps" passHref>
+                                <Button fontSize="10px">Жуулчны бааз</Button>
                               </Link>
                             </HStack>
                           </AccordionPanel>
@@ -144,20 +147,26 @@ export const TourDetail = ({ data }: any) => {
               justifyContent="center"
               w="100%"
             >
-              <Image p={[0, 10]} w={["100%", "50%"]} src={data.roadMap} />
+              <Image
+                p={[0, 10]}
+                w={["100%", "50%"]}
+                src={data.roadMap}
+                alt="ss"
+              />
               <Image
                 mt={[10, 0]}
                 p={[0, 10]}
                 w={["100%", "50%"]}
                 src={data.included}
+                alt="ss"
               />
             </HStack>
 
             <Box w="50%" alignSelf="center" mx="auto">
-              <Link href="https://namecard.kakao.com/boditour">
+              <Link href="https://www.facebook.com/andromeda0709">
                 <a target="_blank">
                   <Button bg="#FF6166" w="100%">
-                    예약 하기
+                    Холбогдох
                   </Button>
                 </a>
               </Link>

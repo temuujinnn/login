@@ -17,11 +17,7 @@ import { BiPhoneCall, BiMailSend } from "react-icons/bi";
 import { SiGooglemaps } from "react-icons/si";
 import Link from "next/link";
 
-const support = [
-  `${"대한민국 홍찬식작협찬"}`,
-  "Photographer Erdenebulgan",
-  "Bayandorj Lkhagvadorj",
-];
+const support = ["Photographer Erdenebulgan", "Bayandorj Lkhagvadorj"];
 const partner = [
   "Mongolian tourism association",
   "Busan tourism association",
@@ -54,15 +50,12 @@ const Footer = () => {
         >
           <Stack spacing={10}>
             <Text fontSize="2xl">Travel.Guide</Text>
-            <Text>
-              {/* 베테랑 기사, 한국어 소통 가능한 가이드, <br /> 24시간 한국
-              상담원이 항시 대기 중입니다^^ */}
-            </Text>
+            <Text></Text>
             <Text fontSize="2xl">Follow Us:</Text>
             <HStack>
               {icons.map((el: any, ind: number) => {
                 return (
-                  <Link href={el.link}>
+                  <Link key={ind} href={el.link}>
                     <a target="_blank">
                       {" "}
                       <Icon
@@ -100,7 +93,7 @@ const Footer = () => {
                 </a>
               </Link>
               <Stack>
-                <Text>Travel.Guide</Text>
+                <Text>travel@guide.com</Text>
                 {/* <Text>kakao talk: gimme333</Text> */}
               </Stack>
             </HStack>
@@ -144,11 +137,11 @@ const Footer = () => {
           <Text color="white" textAlign="center">
             Copyright 2022
           </Text>
-          <Text color="brand.700">Bodi Tour</Text>
+          <Text color="brand.700">Travel Guide</Text>
           <Text color="white" textAlign="center">
             | Developed By
           </Text>
-          <Text color="brand.700">Bodi Tour team</Text>
+          <Text color="brand.700">Bayarmaa</Text>
         </HStack>
       </Stack>
     </>

@@ -6,9 +6,9 @@ import { useRouter } from "next/router";
 import { Borders, brandGradient } from "../Theme/common";
 import axios from "axios";
 const header = [
-  { title: "All activity", link: "/" },
-  { title: "Land scape", link: "/attraction" },
-  { title: "Hotel Booking", link: "/camps" },
+  { title: "Нүүр", link: "/" },
+  { title: "Үзэсгэлэнт газрууд", link: "/attraction" },
+  { title: "Зочид буудлын захиалга", link: "/camps" },
   { title: "Q/A", link: "/faq" },
 ];
 interface Header {

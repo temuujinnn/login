@@ -41,9 +41,9 @@ const Sidebar = ({ isOpen, onClose }: Sidebar) => {
     onClose();
   };
   const header = [
-    { title: "홈페이지", link: "/" },
-    { title: "관광지 소개", link: "/attraction" },
-    { title: "여행지 숙소", link: "/camps" },
+    { title: "Нүүр", link: "/" },
+    { title: "Үзэсгэлэнт газрууд", link: "/attraction" },
+    { title: "Зочид буудлын захиалга", link: "/camps" },
     { title: "Q/A", link: "/faq" },
   ];
 
@@ -77,7 +77,7 @@ const Sidebar = ({ isOpen, onClose }: Sidebar) => {
             <HStack spacing={6} pb={5} justifyContent="center">
               {icons.map((el: any, ind: number) => {
                 return (
-                  <Link href={el.link} passHref>
+                  <Link key={ind} href={el.link} passHref>
                     <a target="_blank">
                       <Icon
                         key={ind}

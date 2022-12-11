@@ -83,7 +83,8 @@ const LayOut = ({ Component, pageProps, loading }: AppProps) => {
               >
                 <Image
                   borderRadius="12px"
-                  src="https://cdn.discordapp.com/attachments/967177210706411523/975000967705657375/unnamed_6.png"
+                  src="https://scontent.fuln8-1.fna.fbcdn.net/v/t39.8562-6/120009688_325579128711709_1736249742330805861_n.png?_nc_cat=1&ccb=1-7&_nc_sid=6825c5&_nc_ohc=kGNJ-0B-HpgAX89hetN&_nc_ht=scontent.fuln8-1.fna&oh=00_AfAWBxSAdtqC_LHRx-zU_NKSHv9BuCbrye5Zh8w9E3Ebdg&oe=6380947D"
+                  alt="ss"
                 />
               </Flex>
             </a>
